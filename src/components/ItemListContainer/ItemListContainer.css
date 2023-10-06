@@ -1,0 +1,13 @@
+.hero-container {
+    margin-top: 75px;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 100px;
+    background-color: #e8e4e2;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+}

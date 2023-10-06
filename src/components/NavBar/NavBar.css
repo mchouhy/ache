@@ -1,0 +1,15 @@
+.me-auto {
+    margin-left: 160px;
+    gap: 50px;
+}
+
+@media (max-width: 991px) {
+
+    .me-auto {
+        gap: 10px;
+    }
+
+    .cart-cont {
+        margin-left: 80px;
+    }
+}
