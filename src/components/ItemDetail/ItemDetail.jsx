@@ -17,7 +17,7 @@ const ItemDetail = ({ id, name, price, img, description }) => {
                 <Card.Text>
                     Número de artículo: {id}
                 </Card.Text>
-                <Button variant="outline-light" className='card-button'>Ver Detalle</Button>
+                <Button variant="outline-light" className='card-button'>Comprar</Button>
             </Card.Body>
         </Card>
     )
