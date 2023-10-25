@@ -9,3 +9,9 @@
 .header-cont {
     margin-top: 20px;
 }
+
+.footer-cont {
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}

@@ -11,3 +11,8 @@
 .subtitle {
     font-size: 1.5rem;
 }
+
+.cards-container {
+    margin-top: 50px;
+    justify-content: center;
+}

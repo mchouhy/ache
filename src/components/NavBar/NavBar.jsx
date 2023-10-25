@@ -9,8 +9,8 @@ import CartWidget from '../CartWidget/CartWidget';
 const NavBar = () => {
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" className="">
-                <Container>
+            <Navbar collapseOnSelect expand="lg" fixed="top" className='navbar-container'>
+                <Container className='navbar-container-child'>
                     <Navbar.Brand href="#home">ACHE STORE</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">

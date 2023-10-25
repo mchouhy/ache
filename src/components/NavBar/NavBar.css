@@ -1,15 +1,26 @@
+.navbar-container {
+    background-color: white;
+    height: 100px;
+}
+
 .me-auto {
     margin-left: 160px;
     gap: 50px;
 }
 
+.navbar-container-child {
+    background-color: white;
+    z-index: 1;
+}
+
 @media (max-width: 991px) {
 
     .me-auto {
-        gap: 10px;
+        gap: 20px;
     }
 
     .cart-cont {
-        margin-left: 80px;
+        margin-top: 10px;
+        margin-left: 160px;
     }
 }
