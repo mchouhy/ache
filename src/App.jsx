@@ -10,17 +10,20 @@ function App() {
 
   return (
     <>
-      <header className='header-cont'>
-        <NavBar />
-      </header>
-      <div className='hero-cont'>
+      <BrowserRouter>
+        <header className='header-cont'>
+          <NavBar />
+        </header>
         <HeroCarousel />
-        <ItemListContainer greeting="Bienvenido a nuestra tienda" />
-      </div>
-      <ItemDetailContainer />
-      <div className='footer-cont'>
-        <Footer />
-      </div>
+        <Routes>
+          <Route path='/' element={<ItemListContainer />} />
+          <Route path='/category/:categoryId' element={<ItemListContainer />} />
+          <Route path='/item/:itemId' element={<ItemDetailContainer />} />
+        </Routes>
+        <div className='footer-cont'>
+          <Footer />
+        </div>
+      </BrowserRouter>
     </>
   )
 }

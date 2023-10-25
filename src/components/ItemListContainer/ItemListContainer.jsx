@@ -1,18 +1,22 @@
 import React from 'react'
+import Container from 'react-bootstrap/Container';
 import './ItemListContainer.css'
 import { useState, useEffect } from 'react'
-import { getProducts } from '../../asyncmock'
+import { getProducts, getProductByCategory } from '../../asyncmock'
 import ItemList from '../ItemList/ItemList'
-import Container from 'react-bootstrap/Container';
+import { useParams } from 'react-router-dom';
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
 
+    const { categoryId } = useParams()
     useEffect(() => {
-        getProducts()
-            .then(response => setProducts(response))
-            .catch(error => console.log(error))
-    }, [])
+
+        const functionProducts = categoryId ? getProductByCategory : getProducts;
+
+        functionProducts(categoryId)
+            .then(res => setProducts(res))
+    }, [categoryId])
     return (
         <div>
             <div className='hero-container'>
