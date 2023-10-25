@@ -14,7 +14,7 @@ const myProducts = [
     { id: "7", categoryId: "decoracion", name: "Vela con Tapa", price: "30€", img: "./public/images/velacontapa1.jpg", description: "Vela de soja grande con tapa." },
 
     { id: "8", categoryId: "iluminacion", name: "Lámpara Sombrero", price: "150€", img: "./public/images/lampara-sombrero-1.jpg", description: "Lámpara artesanal de chapa color dorada." },
-    
+
     { id: "9", categoryId: "muebles", name: "Banco Guayaba", price: "180€", img: "./public/images/banco-guayaba2.jpg", description: "Banco de petiribí encerado y pulido con respaldo." }
 ]
 

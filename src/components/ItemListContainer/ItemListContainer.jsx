@@ -20,7 +20,7 @@ const ItemListContainer = () => {
                 <p className='subtitle'>Comenzá a renovar tu hogar</p>
             </div>
             <Container className='cards-container'>
-                <h2>Nuestros productos</h2>             
+                <h2>Nuestros productos</h2>
                 <ItemList products={products} />
             </Container>
         </div>
