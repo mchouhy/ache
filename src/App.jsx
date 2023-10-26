@@ -5,7 +5,6 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Footer from './components/Footer/Footer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HeroText from './components/HeroText/HeroText';
 
 function App() {
 
@@ -17,7 +16,6 @@ function App() {
         </header>
         <Routes>
           <Route path='/' element={<HeroCarousel />} />
-          <Route path='/' element={<HeroText />} />
           <Route path='/products/all' element={<ItemListContainer />} />
           <Route path='/category/:categoryId' element={<ItemListContainer />} />
           <Route path='/item/:itemId' element={<ItemDetailContainer />} />
