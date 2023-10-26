@@ -16,11 +16,11 @@ const NavBar = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link as={NavLink} to={"category/muebles"}>Muebles</Nav.Link>
-                            <Nav.Link as={NavLink} to={"category/decoracion"}>Decoración</Nav.Link>
-                            <Nav.Link as={NavLink} to={"category/textiles"}>Textiles</Nav.Link>
-                            <Nav.Link as={NavLink} to={"category/iluminacion"}>Iluminación</Nav.Link>
-                            <Nav.Link as={NavLink} to={"products/all"}>Todo</Nav.Link>
+                            <Nav.Link as={NavLink} to={"category/muebles"} onClick={() => setExpanded(false)}>Muebles</Nav.Link>
+                            <Nav.Link as={NavLink} to={"category/decoracion"} onClick={() => setExpanded(false)}>Decoración</Nav.Link>
+                            <Nav.Link as={NavLink} to={"category/textiles"} onClick={() => setExpanded(false)}>Textiles</Nav.Link>
+                            <Nav.Link as={NavLink} to={"category/iluminacion"} onClick={() => setExpanded(false)}>Iluminación</Nav.Link>
+                            <Nav.Link as={NavLink} to={"products/all"} onClick={() => setExpanded(false)}>Todo</Nav.Link>
                         </Nav>
                         <Nav className='cart-cont'>
                             <Nav.Link href="#cart"><CartWidget /></Nav.Link>
