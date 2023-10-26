@@ -1,8 +1,10 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
+import './ItemDetail.css'
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
-const ItemDetail = ({ id, name, price, img, description }) => {
+const ItemDetail = ({ id, name, price, img, description, categoryId }) => {
     return (
         <Card className='item-detail-container'>
             <Card.Img variant="top" src={img} />
@@ -17,7 +19,10 @@ const ItemDetail = ({ id, name, price, img, description }) => {
                 <Card.Text>
                     Número de artículo: {id}
                 </Card.Text>
-                <Button variant="outline-light" className='card-button'>Comprar</Button>
+                <div className='item-detail-buttons-cont'>
+                    <Button as={Link} to={`/category/${categoryId}`} variant="outline-light" className='card-button'>Volver al listado</Button>
+                    <Button variant="outline-light" className='card-button'>Comprar</Button>
+                </div>
             </Card.Body>
         </Card>
     )
