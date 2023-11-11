@@ -3,8 +3,18 @@ import Button from 'react-bootstrap/Button';
 import './ItemDetail.css'
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import Counter from '../Counter/Counter';
 
-const ItemDetail = ({ id, name, price, img, description, categoryId }) => {
+const ItemDetail = ({ id, name, stock, price, img, description, categoryId }) => {
+
+    const [addQuantity, setAddQuantity] = useState(0); //Va 0 porque es la cantidad de productos seleccionados y no se muestra por pantalla
+
+    const quantityHandler = (quantity) => {
+        setAddQuantity(quantity);
+        console.log("Products in cart: " + quantity);
+    }
+
     return (
         <Card className='item-detail-container'>
             <Card.Img variant="top" src={img} />
@@ -20,10 +30,13 @@ const ItemDetail = ({ id, name, price, img, description, categoryId }) => {
                     Número de artículo: {id}
                 </Card.Text>
                 <div className='item-detail-buttons-cont'>
+                    {
+                        addQuantity > 0 ? (<Button as={Link} to="/cart" variant="outline-light" className='card-button'>Finalizar Compra</Button>) : (<Counter initial={1} stock={stock} addFunction={quantityHandler} />)
+                    }
                     <Button as={Link} to={`/category/${categoryId}`} variant="outline-light" className='card-button'>Volver al listado</Button>
-                    <Button variant="outline-light" className='card-button'>Comprar</Button>
                 </div>
             </Card.Body>
+
         </Card>
     )
 }
