@@ -13,14 +13,21 @@
     z-index: 1;
 }
 
+@media (max-width: 1200px) {
+    .me-auto {
+        margin-left: 40px;
+    }
+}
+
 @media (max-width: 991px) {
 
     .me-auto {
-        gap: 20px;
+        gap: 25px;
+        margin-top: 20px;
     }
 
     .cart-cont {
-        margin-top: 10px;
-        margin-left: 160px;
+        margin-top: 15px;
+        margin-left: 40px;
     }
 }
