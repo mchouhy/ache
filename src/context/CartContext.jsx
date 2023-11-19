@@ -1,10 +1,10 @@
-import React, { Children } from 'react'
+import React, { Children } from 'react';
 import { useState, createContext } from "react";
 
 export const CartContext = createContext({
     cart: [],
-    totalQuantity: 0,
-    totalPrice: 0
+    totalPrice: 0,
+    totalQuantity: 0
 });
 
 export const CartProvider = ({ children }) => {
@@ -12,7 +12,6 @@ export const CartProvider = ({ children }) => {
     const [totalQuantity, setTotalQuantity] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
 
-    //PRUEBA. CUANDO TENGAMOS COMPONENTE BORRAR:
     console.log(cart);
 
     const addToCart = (item, quantity) => {
@@ -21,7 +20,7 @@ export const CartProvider = ({ children }) => {
         if (!existingProduct) {
             setCart(prev => [...prev, { item, quantity }]);
             setTotalQuantity(prev => prev + quantity);
-            setTotalPrice(prev => prev + (item.precio * quantity));
+            setTotalPrice(prev => prev + (item.price * quantity));
         } else {
             const updatedCart = cart.map(prod => {
                 if (prod.item.id === item.id) {
@@ -32,7 +31,7 @@ export const CartProvider = ({ children }) => {
             })
             setCart(updatedCart);
             setTotalQuantity(prev => prev + quantity);
-            setTotalPrice(prev => prev + (item.precio * quantity));
+            setTotalPrice(prev => prev + (item.price * quantity));
         }
     }
 

@@ -26,7 +26,7 @@ const ItemDetail = ({ id, name, stock, price, img, description, categoryId }) =>
             <Card.Body>
                 <Card.Title> {name} </Card.Title>
                 <Card.Title>
-                    {price}
+                    €{price}
                 </Card.Title>
                 <Card.Text>
                     {description}
@@ -36,7 +36,7 @@ const ItemDetail = ({ id, name, stock, price, img, description, categoryId }) =>
                 </Card.Text>
                 <div className='item-detail-buttons-cont'>
                     {
-                        addQuantity > 0 ? (<Button as={Link} to="/cart" variant="outline-light" className='card-button'>Finalizar Compra</Button>) : (<Counter initial={1} stock={stock} addFunction={quantityHandler} />)
+                        addQuantity > 0 ? (<Button as={Link} to="/cart" variant="outline-light" className='card-button'>Ir al Carrito</Button>) : (<Counter initial={1} stock={stock} addFunction={quantityHandler} />)
                     }
                     <Button as={Link} to={`/category/${categoryId}`} variant="outline-light" className='card-button'>Volver al listado</Button>
                 </div>

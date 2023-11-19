@@ -11,7 +11,7 @@ const Item = ({ id, name, price, img }) => {
       <Card.Body>
         <Card.Title> {name} </Card.Title>
         <Card.Title>
-          {price}
+          €{price}
         </Card.Title>
         <Card.Text>
           Número de artículo: {id}
