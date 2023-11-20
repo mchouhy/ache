@@ -25,6 +25,8 @@ const Cart = () => {
 
     return (
         <Container className='CartContainer'>
+            <h2 className='cart-title'>Tu Carrito de Compras:</h2>
+            <br />
             {
                 cart.map(product => <CartItem key={product.item.id} {...product} />)
             }

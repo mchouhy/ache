@@ -10,6 +10,10 @@
     padding-bottom: 20px;
 }
 
+.cart-title {
+    text-align: center;
+}
+
 .empty-cart-button {
     margin-right: 15px;
 }

@@ -23,11 +23,13 @@ const Counter = ({ initial, stock, addFunction }) => {
     return (
     <>
         <div className='counter-container'>
-            <Button onClick={toSubtractCounter} variant="outline-light" className='card-button'> - </Button>
+            <Button onClick={toSubtractCounter} variant="outline-light" className='card-button minus-button'> - </Button>
             <strong> {counter} </strong>
             <Button onClick={toAddCounter} variant="outline-light" className='card-button'> + </Button>
         </div>
-        <Button onClick={()=> addFunction(counter)} variant="outline-light" className='card-button'> Agregar al Carrito </Button>
+        <div className='button-container'>
+            <Button onClick={()=> addFunction(counter)} variant="outline-light" className='card-button'> Agregar al Carrito </Button>
+        </div>
     </>
     )
 }

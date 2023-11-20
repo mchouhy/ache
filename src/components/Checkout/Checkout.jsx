@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import { db } from '../../services/config';
 import { collection, addDoc, updateDoc, doc, getDoc } from 'firebase/firestore';
@@ -126,9 +127,11 @@ const Checkout = () => {
                 {
                     error && <p> {error} </p>
                 }
-
-                <Button type='submit' variant="outline-light" className='card-button'>Confirmar Compra</Button>
-
+                <div className='button-container'>
+                <Button as={Link} to='/cart' variant="outline-light" className='card-button'>Volver</Button>
+                <Button as={Link} to='/products/all' variant="outline-light" className='card-button'>Seguir Comprando</Button>
+                <Button type='submit' variant="outline-light" className='card-button'>Tramitar Pedido</Button>
+                </div>
                 {
                     orderId && (
                         <strong>
