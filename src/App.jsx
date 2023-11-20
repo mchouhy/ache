@@ -25,6 +25,7 @@ function App() {
             <Route path='/item/:itemId' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/checkout' element={<Checkout />} />
+            <Route path='*' element={<h2>Sitio en Construcción</h2>} />
           </Routes>
           <div className='footer-cont'>
             <Footer />

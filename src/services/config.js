@@ -1,10 +1,8 @@
 import { initializeApp } from "firebase/app";
-import {getFirestore} from "firebase/firestore";
-
-
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA3SeyqH-Yq4GZryvR43EUReEjdj2cZYLg",
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
     authDomain: "ache-store.firebaseapp.com",
     projectId: "ache-store",
     storageBucket: "ache-store.appspot.com",
