@@ -34,6 +34,9 @@ const ItemDetail = ({ id, name, stock, price, img, description, categoryId }) =>
                 <Card.Text>
                     Número de artículo: {id}
                 </Card.Text>
+                <Card.Text>
+                    Stock: {stock}
+                </Card.Text>
                 <div className='item-detail-buttons-cont'>
                     {
                         addQuantity > 0 ? (<Button as={Link} to="/cart" variant="outline-light" className='card-button'>Ir al Carrito</Button>) : (<Counter initial={1} stock={stock} addFunction={quantityHandler} />)
