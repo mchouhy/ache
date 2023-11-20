@@ -1,0 +1,15 @@
+.product-card {
+    width: 20rem;
+    height: auto;
+}
+
+.card-button {
+    background-color: #b2937d !important;
+    color: white !important;
+    border: white !important;
+}
+
+.card-button:hover {
+    background-color: #e8e4e2 !important;
+    color: black !important;
+}
