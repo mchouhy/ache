@@ -98,6 +98,9 @@ const Checkout = () => {
                             ))
                         }
                         <br />
+                        <h3>Cantidad Total de Productos: {totalQuantity}</h3>
+                        <h3>Precio Total: €{totalPrice}</h3>
+                        <br />
                     </div>
 
                     <div>
