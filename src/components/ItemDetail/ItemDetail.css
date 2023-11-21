@@ -2,3 +2,13 @@
     display: flex;
     gap: 20px;
 }
+
+@media (max-width: 767px) {
+    .item-detail-buttons-cont {
+        display: inline-block;
+    }
+
+    .detail-button {
+        margin-top: 10px;
+    }
+}

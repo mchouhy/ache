@@ -3,8 +3,6 @@ import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import Button from 'react-bootstrap/Button';
 
-
-
 const CartItem = ({ item, quantity }) => {
     const { deleteProduct } = useContext(CartContext);
 

@@ -7,6 +7,8 @@ import { useState } from 'react';
 import Counter from '../Counter/Counter';
 import { CartContext } from '../../context/CartContext';
 import { useContext } from 'react';
+import classNames from 'classnames';
+
 
 const ItemDetail = ({ id, name, stock, price, img, description, categoryId }) => {
 
@@ -19,6 +21,8 @@ const ItemDetail = ({ id, name, stock, price, img, description, categoryId }) =>
         const item = { id, name, price };
         addToCart(item, quantity);
     }
+
+    const buttonClasses = classNames('card-button', 'detail-button');
 
     return (
         <Card className='item-detail-container'>
@@ -39,9 +43,9 @@ const ItemDetail = ({ id, name, stock, price, img, description, categoryId }) =>
                 </Card.Text>
                 <div className='item-detail-buttons-cont'>
                     {
-                        addQuantity > 0 ? (<Button as={Link} to="/cart" variant="outline-light" className='card-button'>Ir al Carrito</Button>) : (<Counter initial={1} stock={stock} addFunction={quantityHandler} />)
+                        addQuantity > 0 ? (<Button as={Link} to="/cart" variant="outline-light" className={buttonClasses}>Ir al Carrito</Button>) : (<Counter initial={1} stock={stock} addFunction={quantityHandler} />)
                     }
-                    <Button as={Link} to={`/category/${categoryId}`} variant="outline-light" className='card-button'>Volver al listado</Button>
+                    <Button as={Link} to={`/category/${categoryId}`} variant="outline-light" className={buttonClasses}>Volver al listado</Button>
                 </div>
             </Card.Body>
         </Card>

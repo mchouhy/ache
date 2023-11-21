@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import './Counter.css';
+import classNames from 'classnames';
 
 const Counter = ({ initial, stock, addFunction }) => {
 
@@ -19,6 +20,8 @@ const Counter = ({ initial, stock, addFunction }) => {
         }
     }
 
+    const buttonClasses = classNames('card-button', 'addCartButton');
+
     return (
         <>
             <div className='counter-container'>
@@ -27,7 +30,7 @@ const Counter = ({ initial, stock, addFunction }) => {
                 <Button onClick={toAddCounter} variant="outline-light" className='card-button'> + </Button>
             </div>
             <div className='button-container'>
-                <Button onClick={() => addFunction(counter)} variant="outline-light" className='card-button'> Agregar al Carrito </Button>
+                <Button onClick={() => addFunction(counter)} variant="outline-light" className={buttonClasses}> Agregar al Carrito </Button>
             </div>
         </>
     )

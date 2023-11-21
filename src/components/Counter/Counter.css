@@ -11,4 +11,8 @@
     .counter-container strong {
         margin: 5px;
     }
+
+    .addCartButton {
+        margin-top: 10px;
+    }
 }
