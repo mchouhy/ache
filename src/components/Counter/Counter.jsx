@@ -19,7 +19,6 @@ const Counter = ({ initial, stock, addFunction }) => {
         }
     }
 
-
     return (
         <>
             <div className='counter-container'>

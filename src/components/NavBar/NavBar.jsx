@@ -23,7 +23,7 @@ const NavBar = () => {
                             <Nav.Link as={NavLink} to={"products/all"}>Todo</Nav.Link>
                         </Nav>
                         <Nav className='cart-cont'>
-                            <Nav.Link href="#cart"><CartWidget /></Nav.Link>
+                            <Nav.Link as={NavLink} to={"/cart"}><CartWidget /></Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
