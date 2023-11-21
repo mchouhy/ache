@@ -3,10 +3,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import { db } from '../../services/config';
-import { collection, addDoc, updateDoc, doc, getDoc } from 'firebase/firestore';
+import { collection, addDoc, updateDoc, doc, getDoc, disableNetwork } from 'firebase/firestore';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import classNames from 'classnames';
 import './Checkout.css';
 
 
@@ -19,8 +20,11 @@ const Checkout = () => {
     const [blankFieldError, setBlankFieldError] = useState(null);
     const [emailError, setEmailError] = useState(null);
     const [orderId, setOrderId] = useState("");
+    const [disableOrderBtn, setDisableOrderBtn] = useState(false);
 
     const { cart, emptyCart, totalPrice, totalQuantity } = useContext(CartContext);
+
+    const btnClasses = classNames('card-button', 'order-btn');
 
     const formHandler = (event) => {
         event.preventDefault();
@@ -34,6 +38,8 @@ const Checkout = () => {
             setEmailError("Los campos de email y confirmar email deben ser idénticos.");
             return;
         }
+
+        orderId ? setDisableOrderBtn(true) : setDisableOrderBtn(false);
 
         const order = {
             items: cart.map(product => ({
@@ -153,8 +159,9 @@ const Checkout = () => {
                 <div className='button-container'>
                     <Button as={Link} to='/cart' variant="outline-light" className='card-button'>Volver</Button>
                     <Button as={Link} to='/products/all' variant="outline-light" className='card-button'>Seguir Comprando</Button>
-                    <Button type='submit' variant="outline-light" className='card-button'>Tramitar Pedido</Button>
+                    <Button type='submit' variant="outline-light" className={btnClasses} disabled={disableOrderBtn}>Tramitar Pedido</Button>
                 </div>
+                <br />
                 {
                     orderId && (
                         <strong>
