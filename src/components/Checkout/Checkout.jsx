@@ -20,7 +20,7 @@ const Checkout = () => {
     const [blankFieldError, setBlankFieldError] = useState(null);
     const [emailError, setEmailError] = useState(null);
     const [orderId, setOrderId] = useState("");
-    const [disableOrderBtn, setDisableOrderBtn] = useState(false);
+    const [disable, setDisable] = useState(false);
 
     const { cart, emptyCart, totalPrice, totalQuantity } = useContext(CartContext);
 
@@ -38,8 +38,6 @@ const Checkout = () => {
             setEmailError("Los campos de email y confirmar email deben ser idénticos.");
             return;
         }
-
-        orderId ? setDisableOrderBtn(true) : setDisableOrderBtn(false);
 
         const order = {
             items: cart.map(product => ({
@@ -73,6 +71,7 @@ const Checkout = () => {
                     .then(docRef => {
                         setOrderId(docRef.id);
                         emptyCart();
+                        setDisable(true);
                     })
                     .catch(error => {
                         console.log("Error al crear la orden.", error);
@@ -159,15 +158,14 @@ const Checkout = () => {
                 <div className='button-container'>
                     <Button as={Link} to='/cart' variant="outline-light" className='card-button'>Volver</Button>
                     <Button as={Link} to='/products/all' variant="outline-light" className='card-button'>Seguir Comprando</Button>
-                    <Button type='submit' variant="outline-light" className={btnClasses} disabled={disableOrderBtn}>Tramitar Pedido</Button>
+                    <Button type='submit' variant="outline-light" className={btnClasses} disabled={disable}>Tramitar Pedido</Button>
                 </div>
                 <br />
                 {
                     orderId && (
                         <strong>
                             ¡Gracias por tu compra! Tu número de orden es: {orderId}
-                        </strong>
-                    )
+                        </strong>)
                 }
             </form>
         </Container>
