@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import classNames from 'classnames';
-import 'animate.css';
+import Confetti from 'react-dom-confetti';
 import './Checkout.css';
 
 
@@ -22,12 +22,27 @@ const Checkout = () => {
     const [emailError, setEmailError] = useState(null);
     const [orderId, setOrderId] = useState("");
     const [disable, setDisable] = useState(false);
+    const [confetti, setConfetti] = useState(false);
 
-    const { cart, emptyCart, totalPrice, totalQuantity, cartCheckout, totalPriceCheckout, totalQuantityCheckout } = useContext(CartContext);
+    const { cart, emptyCart, totalPrice, totalQuantity, cartCheckout, totalPriceCheckout, totalQuantityCheckout, emptyCartCheckout } = useContext(CartContext);
 
     const btnClasses = classNames('card-button', 'order-btn');
 
-    const orderMessageClasses = classNames('animate__animated', 'animate__tada', 'orderMessage')
+    const orderMessageClasses = classNames('orderMessage');
+
+    const configConfetti = {
+        angle: 95,
+        spread: 360,
+        startVelocity: 26,
+        elementCount: 200,
+        dragFriction: 0.15,
+        duration: 3000,
+        stagger: 0,
+        width: "20px",
+        height: "20px",
+        perspective: "505px",
+        colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
+    };
 
     const formHandler = (event) => {
         event.preventDefault();
@@ -75,6 +90,8 @@ const Checkout = () => {
                         setOrderId(docRef.id);
                         emptyCart();
                         setDisable(true);
+                        setConfetti(true);
+                        emptyCartCheckout();
                     })
                     .catch(error => {
                         console.log("Error al crear la orden.", error);
@@ -161,7 +178,10 @@ const Checkout = () => {
                 <div className='button-container'>
                     <Button as={Link} to='/cart' variant="outline-light" className='card-button'>Volver</Button>
                     <Button as={Link} to='/products/all' variant="outline-light" className='card-button'>Seguir Comprando</Button>
-                    <Button type='submit' variant="outline-light" className={btnClasses} disabled={disable}>Tramitar Pedido</Button>
+                    <Button type='submit' variant="outline-light" className={btnClasses} disabled={disable}>
+                        Tramitar Pedido
+                        <Confetti active={confetti} config={configConfetti} />
+                    </Button>
                 </div>
                 <br />
                 {

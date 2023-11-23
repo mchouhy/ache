@@ -77,8 +77,14 @@ export const CartProvider = ({ children }) => {
         setTotalPrice(0);
     }
 
+    const emptyCartCheckout = () => {
+        setCartCheckout([]);
+        setTotalQuantityCheckout(0);
+        setTotalPriceCheckout(0);
+    }
+
     return (
-        <CartContext.Provider value={{ cart, totalQuantity, totalPrice, cartCheckout, totalQuantityCheckout, totalPriceCheckout, addToCart, deleteProduct, emptyCart }}>
+        <CartContext.Provider value={{ cart, totalQuantity, totalPrice, cartCheckout, totalQuantityCheckout, totalPriceCheckout, addToCart, deleteProduct, emptyCart, emptyCartCheckout }}>
             {children}
         </CartContext.Provider>
     )
