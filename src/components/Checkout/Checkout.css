@@ -18,6 +18,10 @@
     color: red;
 }
 
+.orderMessage {
+    color: green;
+}
+
 @media (max-width: 456px) {
     .button-container {
         display: flex;

@@ -8,6 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import classNames from 'classnames';
+import 'animate.css';
 import './Checkout.css';
 
 
@@ -22,9 +23,11 @@ const Checkout = () => {
     const [orderId, setOrderId] = useState("");
     const [disable, setDisable] = useState(false);
 
-    const { cart, emptyCart, totalPrice, totalQuantity } = useContext(CartContext);
+    const { cart, emptyCart, totalPrice, totalQuantity, cartCheckout, totalPriceCheckout, totalQuantityCheckout } = useContext(CartContext);
 
     const btnClasses = classNames('card-button', 'order-btn');
+
+    const orderMessageClasses = classNames('animate__animated', 'animate__tada', 'orderMessage')
 
     const formHandler = (event) => {
         event.preventDefault();
@@ -94,7 +97,7 @@ const Checkout = () => {
                         <h4 className='checkout-subtitle'>Resumen de orden:</h4>
                         <br />
                         {
-                            cart.map(product => (
+                            cartCheckout.map(product => (
                                 <div key={product.item.id}>
                                     <h4> {product.item.name} x {product.quantity} </h4>
                                     <h4> €{product.item.price * product.quantity} </h4>
@@ -103,8 +106,8 @@ const Checkout = () => {
                             ))
                         }
                         <br />
-                        <h3>Cantidad Total de Productos: {totalQuantity}</h3>
-                        <h3>Precio Total: €{totalPrice}</h3>
+                        <h3>Cantidad Total de Productos: {totalQuantityCheckout}</h3>
+                        <h3>Precio Total: €{totalPriceCheckout}</h3>
                         <br />
                     </div>
 
@@ -163,8 +166,8 @@ const Checkout = () => {
                 <br />
                 {
                     orderId && (
-                        <strong>
-                            ¡Gracias por tu compra! Tu número de orden es: {orderId}
+                        <strong className={orderMessageClasses}>
+                            ¡Gracias por tu compra {name}! Tu número de orden es: {orderId} ¡No lo pierdas!
                         </strong>)
                 }
             </form>
