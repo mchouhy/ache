@@ -23,6 +23,7 @@ const Checkout = () => {
     const [orderId, setOrderId] = useState("");
     const [disable, setDisable] = useState(false);
     const [confetti, setConfetti] = useState(false);
+    const [inputDisable, setInputDisable] = useState(false);
 
     const { cart, emptyCart, totalPrice, totalQuantity, cartCheckout, totalPriceCheckout, totalQuantityCheckout, emptyCartCheckout } = useContext(CartContext);
 
@@ -31,18 +32,19 @@ const Checkout = () => {
     const orderMessageClasses = classNames('orderMessage');
 
     const configConfetti = {
-        angle: 95,
+        angle: 90,
         spread: 360,
-        startVelocity: 26,
-        elementCount: 200,
-        dragFriction: 0.15,
-        duration: 3000,
+        startVelocity: 40,
+        elementCount: 1000,
+        dragFriction: 0.11,
+        duration: 5000,
         stagger: 0,
-        width: "20px",
-        height: "20px",
-        perspective: "505px",
-        colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
+        width: "7px",
+        height: "7px",
+        perspective: "535px",
+        colors: ["#B68D40", "#F4EBD0", "#122620", "#D6AD60"]
     };
+
 
     const formHandler = (event) => {
         event.preventDefault();
@@ -89,6 +91,7 @@ const Checkout = () => {
                     .then(docRef => {
                         setOrderId(docRef.id);
                         emptyCart();
+                        setInputDisable(true);
                         setDisable(true);
                         setConfetti(true);
                         emptyCartCheckout();
@@ -102,6 +105,7 @@ const Checkout = () => {
                 console.log("No se pudo actualizar el stock", error);
                 setError("No se pudo actualizar el stock. Intente nuevamente.");
             })
+
     }
 
     return (
@@ -109,7 +113,7 @@ const Checkout = () => {
             <form onSubmit={formHandler}>
                 <h2 className='checkout-title'>Checkout</h2>
                 <div className='checkout-container'>
-                    <div>
+                    <div className='orderSummaryContainer'>
                         <br />
                         <h4 className='checkout-subtitle'>Resumen de orden:</h4>
                         <br />
@@ -132,28 +136,28 @@ const Checkout = () => {
                         <h4 className='checkout-subtitle'>Datos personales:</h4>
                         <br />
                         <Form.Floating className="mb-3">
-                            <Form.Control id="floatingPasswordCustom" type="text" placeholder="Nombre" onChange={(e) => setName(e.target.value)} />
+                            <Form.Control id="floatingPasswordCustom" type="text" placeholder="Nombre" onChange={(e) => setName(e.target.value)} disabled={inputDisable}/>
                             <label htmlFor="floatingPasswordCustom">Nombre</label>
                         </Form.Floating>
                         {
                             !name ? <p className='errorMessage'> {blankFieldError} </p> : ""
                         }
                         <Form.Floating className="mb-3">
-                            <Form.Control id="floatingPasswordCustom" type="text" placeholder="Apellido" onChange={(e) => setSurname(e.target.value)} />
+                            <Form.Control id="floatingPasswordCustom" type="text" placeholder="Apellido" onChange={(e) => setSurname(e.target.value)} disabled={inputDisable}/>
                             <label htmlFor="floatingPasswordCustom">Apellido</label>
                         </Form.Floating>
                         {
                             !surname ? <p className='errorMessage'> {blankFieldError} </p> : ""
                         }
                         <Form.Floating className="mb-3">
-                            <Form.Control id="floatingPasswordCustom" type="text" placeholder="Teléfono" onChange={(e) => setPhone(e.target.value)} />
+                            <Form.Control id="floatingPasswordCustom" type="text" placeholder="Teléfono" onChange={(e) => setPhone(e.target.value)} disabled={inputDisable}/>
                             <label htmlFor="floatingPasswordCustom">Teléfono</label>
                         </Form.Floating>
                         {
                             !phone ? <p className='errorMessage'> {blankFieldError} </p> : ""
                         }
                         <Form.Floating className="mb-3">
-                            <Form.Control id="floatingPasswordCustom" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                            <Form.Control id="floatingPasswordCustom" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} disabled={inputDisable}/>
                             <label htmlFor="floatingPasswordCustom">Email</label>
                         </Form.Floating>
                         {
@@ -163,7 +167,7 @@ const Checkout = () => {
                             email !== emailConfirmation ? <p className='errorMessage'> {emailError} </p> : ""
                         }
                         <Form.Floating className="mb-3">
-                            <Form.Control id="floatingPasswordCustom" type="email" placeholder="Confirmar Email" onChange={(e) => setEmailConfirmation(e.target.value)} />
+                            <Form.Control id="floatingPasswordCustom" type="email" placeholder="Confirmar Email" onChange={(e) => setEmailConfirmation(e.target.value)} disabled={inputDisable}/>
                             <label htmlFor="floatingPasswordCustom">Confirmar Email</label>
                         </Form.Floating>
                         {
