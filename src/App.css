@@ -1,17 +1,18 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    color: black;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: black;
 }
 
 .header-cont {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .footer-cont {
-    padding: 40px;
-    display: flex;
-    justify-content: center;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
 }
