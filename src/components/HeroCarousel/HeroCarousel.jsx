@@ -1,4 +1,3 @@
-import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -8,9 +7,9 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 const HeroCarousel = () => {
-  const CarouselImage = "/public/images/hero-image-2.png";
-  const CarouselImage2 = "/public/images/hero-image-4.jpg";
-  const CarouselImage3 = "/public/images/hero-image-5.png";
+  const CarouselImage = "/images/hero-image-2.png";
+  const CarouselImage2 = "/images/hero-image-4.jpg";
+  const CarouselImage3 = "/images/hero-image-5.png";
 
   return (
     <>
